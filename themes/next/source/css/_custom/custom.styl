@@ -1,0 +1,102 @@
+// Custom styles.
+// ----------------窗口波动效果相关样式 start--------------------
+if hexo-config('wobble')  {
+
+  .sidebar {
+    box-shadow: none;
+  }
+
+  .wobbleTransparentBK{
+    background-color: rgba(0,0,0,0) !important;
+  }
+
+  .wobbleTransparentLine{
+    border-color: rgba(0,0,0,0) !important;
+  }
+
+  //Next.Muse中为Header和Footer添加背景色
+  #header, #footer {
+    width:100%;
+    background-color: rgb(245, 245, 245);
+  }
+
+  //防止sidebar和footer同时开启动效时堆叠异常
+  #sidebar, header {
+    z-index: 1 !important;
+  }
+
+  //防止挡住页末文章的阅读全文按钮
+  .main {
+    padding-bottom: 200px;
+  }
+
+  #footer #wobblew{
+    width:100%;
+  }
+}
+
+// ----------------窗口波动效果相关样式 end--------------------
+
+// --------header   start------------
+
+.header-inner {
+  padding: 25px 0px
+}
+.header-inner .brand {
+  background:none;
+  color:#222;
+}
+.header-inner .brand .site-title{
+  font-weight: bold;
+  font-size:24px;
+}
+
+// --------header   end------------
+
+
+
+// ---------------------------------------字体 start----------------------------------------
+font:
+  enable: true
+
+  // 外链字体库地址，例如 //fonts.googleapis.com (默认值)
+  host: 
+
+  //全局字体，应用在 body 元素上
+  global:
+    external: true
+    family: Monda
+
+  // 标题字体 (h1, h2, h3, h4, h5, h6)
+  headings:
+    external: true
+    family: Roboto Slab
+
+  // 文章字体
+  posts:
+    external: true
+    family:
+
+  //Logo 字体
+  logo:
+    external: true
+    family:
+
+  //代码字体，应用于 code 以及代码块
+  codes:
+    external: true
+    family: 'Cabin', sans-serif;
+
+//--------------------------------------------字体 end------------------------------------------------
+
+//  侧边栏
+
+.sidebar-toggle {
+  left: 30px;
+}
+
+.sidebar {
+  left: 0px;
+}
+
+//  侧边栏
