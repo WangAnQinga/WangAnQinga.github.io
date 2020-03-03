@@ -47,14 +47,19 @@ node_modules
 ```
 module.exports = {
   root: true,
-  parser: "babel-eslint",
+  // vue 里面
+  parser: "vue-eslint-parser",
   env: {
     es6: true,
     browser: true,
     node: true
   },
+  // parserOptions来指定语言版本为和模块类型
   parserOptions: {
+    parser: "babel-eslint",
+    //  ecm版本
     ecmaVersion: 6,
+    // 模块类型sourceType为module，如此便支持export和import来导出并引用文件
     sourceType: "module",
     ecmaFeatures: {
       jsx: true,
@@ -64,8 +69,8 @@ module.exports = {
   },
   globals: {
   },
-  //
   extends: "eslint:recommended",
+  // vue:  extends: "plugin:vue-libs/recommended","@vue/typescript","eslint:recommended"
   // required to lint *.vue files
   plugins: ["html"],
   // add your custom rules here
