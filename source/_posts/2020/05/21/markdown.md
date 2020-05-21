@@ -1,12 +1,15 @@
 ---
+layout: '[layout]'
 title: Markdown 的基本语法
 tags:
   - Markdown
 categories:
   - 前端
+date: 2020-05-21 14:34:16
 ---
 
-# Markdown 的基本语法
+
+## Markdown
 
 Markdown 是一种标记语言，语法简单，易阅读易编写，可以让用户完全脱离鼠标写出样式丰富的文档，广受程序员喜爱，目前许多网站都已经支持通过 Markdown 语法来写文章或者发表评论。
 

@@ -5,7 +5,7 @@ tags:
   - eslint
 ---
 
-#Eslint
+## Eslint
 
 **eslint 相关的文件在根目录下 `.editorconfig` `.eslintignore` `.eslintrc.js`**
 
@@ -13,7 +13,7 @@ tags:
 `.eslintignore`： eslint 忽略校验的配置文件
 `.eslintrc.js`： eslint 关键的配置文件
 
-##### 配置根目录下的`.editorconfig`文件
+## 配置根目录下的`.editorconfig`文件
 
 [https://editorconfig.org/](https://editorconfig.org/)
 
@@ -35,14 +35,14 @@ max_line_length = 0
 trim_trailing_whitespace = false
 ```
 
-##### 配置根目录下的`.eslintignore`文件
+## 配置根目录下的`.eslintignore`文件
 
 ```
 dist
 node_modules
 ```
 
-##### 配置根目录下的`.eslintrc.js`文件
+## 配置根目录下的`.eslintrc.js`文件
 
 ```
 module.exports = {

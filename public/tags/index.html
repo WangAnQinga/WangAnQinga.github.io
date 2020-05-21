@@ -80,13 +80,13 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
+<meta property="og:title" content="标签">
 <meta property="og:url" content="http://wanganqinga.github.io/tags/index.html">
 <meta property="og:site_name" content="Wanganqing&#39;s Blog">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-22T09:46:26.535Z">
+<meta property="og:updated_time" content="2020-05-21T06:42:07.882Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="标签">
 
 
 
@@ -122,7 +122,7 @@
 
 
 
-  <title>tags | Wanganqing's Blog</title>
+  <title>标签 | Wanganqing's Blog</title>
   
 
 
@@ -231,7 +231,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">tags</h1>
+	<h1 class="post-title" itemprop="name headline">标签</h1>
 
 
 
@@ -243,7 +243,14 @@
       <div class="post-body">
         
         
-          
+          <div class="tag-cloud">
+            <div class="tag-cloud-title">
+                目前共计 11 个标签
+            </div>
+            <div class="tag-cloud-tags">
+              <a href="/tags/Markdown/" style="font-size: 12px; color: #ccc">Markdown</a> <a href="/tags/video/" style="font-size: 12px; color: #ccc">video</a>
+            </div>
+          </div>
         
       </div>
       
@@ -301,14 +308,32 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
@@ -342,12 +367,21 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">wanganqing</span>
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1.8k</span>
   
 </div>
 
@@ -575,6 +609,26 @@
 
 
   <script async src="/js/src/cursor.js"></script>
+
+
+
+
+
+  <script>
+    var OriginTitile = document.title;
+    var titleTime;
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        document.title = '我是谁，我在哪' + OriginTitile;
+        clearTimeout(titleTime);
+      } else {
+        document.title = '你是谁，你在哪' + OriginTitile;
+        titleTime = setTimeout(function() {
+          document.title = OriginTitile;
+        }, 2000);
+      }
+    });
+  </script>
 
 </body>
 </html>
