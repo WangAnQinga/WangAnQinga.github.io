@@ -81,7 +81,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Wanganqing&#39;s Blog">
-<meta property="og:url" content="http://wanganqinga.github.io/archives/2019/index.html">
+<meta property="og:url" content="http://wanganqinga.github.io/tags/Markdown/index.html">
 <meta property="og:site_name" content="Wanganqing&#39;s Blog">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
@@ -115,13 +115,13 @@
 
 
 
-  <link rel="canonical" href="http://wanganqinga.github.io/archives/2019/">
+  <link rel="canonical" href="http://wanganqinga.github.io/tags/Markdown/">
 
 
 
 
 
-  <title>归档 | Wanganqing's Blog</title>
+  <title>标签: Markdown | Wanganqing's Blog</title>
   
 
 
@@ -140,7 +140,7 @@
     
   
 
-  <div class="container sidebar-position-right page-archive">
+  <div class="container sidebar-position-right ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -226,33 +226,15 @@
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div class="post-block tag">
 
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 1 篇日志。 继续努力。
-      </span>
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>Markdown<small>标签</small>
+        </h1>
+      </div>
 
       
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
-
         
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -260,17 +242,17 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2019/08/22/hello-world/" itemprop="url">
+            <a class="post-title-link" href="/2020/05/21/markdown/" itemprop="url">
               
-                <span itemprop="name">Hello World</span>
+                <span itemprop="name">Markdown 的基本语法</span>
               
             </a>
         
       </h2>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-22T16:41:36+08:00" content="2019-08-22">
-          08-22
+        <time class="post-time" itemprop="dateCreated" datetime="2020-05-21T14:34:16+08:00" content="2020-05-21">
+          05-21
         </time>
       </div>
 
@@ -278,17 +260,15 @@
   </article>
 
 
-
       
-
     </div>
+
   </div>
   
   
   
 
   
-
 
 
           </div>
@@ -332,14 +312,32 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
@@ -373,12 +371,21 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">wanganqing</span>
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1.8k</span>
   
 </div>
 
@@ -602,6 +609,26 @@
 
 
   <script async src="/js/src/cursor.js"></script>
+
+
+
+
+
+  <script>
+    var OriginTitile = document.title;
+    var titleTime;
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        document.title = '我是谁，我在哪' + OriginTitile;
+        clearTimeout(titleTime);
+      } else {
+        document.title = '你是谁，你在哪' + OriginTitile;
+        titleTime = setTimeout(function() {
+          document.title = OriginTitile;
+        }, 2000);
+      }
+    });
+  </script>
 
 </body>
 </html>
