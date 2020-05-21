@@ -1,10 +1,9 @@
 ---
 title: git-commit 规范和代码风格检查
 categories:
-  - git
+  - 前端
 tags:
   - git
-  - git commit
 ---
 
 **本文思路：**
@@ -161,6 +160,8 @@ commitizen 作用: Simply use git cz instead of git commit when committing.
 npm install -g commitizen cz-conventional-changelog
 ```
 
+这个工具可用可不用，看个人喜好
+
 如上配置，每次它只会在你本地 commit 之前，校验你提交的内容是否符合你本地配置的 eslint 规则(这个见文档 ESLint )，如果符合规则，则会提交成功。如果不符合它会自动执行 eslint --fix 尝试帮你自动修复，如果修复成功则会帮你把修复好的代码提交，如果失败，则会提示你错误，让你修好这个错误之后才能允许你提交代码
 
 ## 最终的流程
@@ -170,7 +171,8 @@ npm install -g commitizen cz-conventional-changelog
 1. 待提交的代码 git add 添加到暂存区;
 2. 执行 git cz; // 也可以用原来的 git commit -m "fix: 修复了 XXX 功能"
 3. husky 注册在 git pre-commit 的钩子函数被调用，执行 lint-staged 和 commit 信息检查;
-4. Lint-staged 保证只对当前 add 到 git stage 区的文件进行扫描操作，这样做的原因在于，如果对全工程的文件进行扫描的话，并且之前的前端工程并未注重代码规则的检测的话，很大可能性会出现成百上千的 error，基本上心里是崩溃的。因此，只对当前 add 的文件进行检测，达到及时止损的目的，历史代码可以切到新的分支进行修复后再进行合并。
+4. Lint-staged 保证只对当前 add 到 git stage 区的文件进行扫描操作，这样做的原因在于，如果对全工程的文件进行扫描的话，并且之前的前端工程并未注重代码规则的检测的话，很大可能性会出现成百上千的 error，基本上心里是崩溃的。
+   因此，只对当前 add 的文件进行检测，达到及时止损的目的，历史代码可以切到新的分支进行修复后再进行合并。
 5. 如果有错误（没通过 ESlint 检查）则停止任务，同时打印错误信息，等待修复后再执行 commit;
 6. 成功 commit，可 push 到远程
 
