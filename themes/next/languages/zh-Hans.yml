@@ -33,7 +33,7 @@ post:
   visitors: 阅读次数
   wordcount: 字数统计
   min2read: 阅读时长
-  totalcount: Site words total count
+  totalcount: 字数总计
   copyright:
     author: 本文作者
     link: 本文链接
@@ -85,9 +85,9 @@ cheers:
 keep_on: 继续努力。
 
 symbol:
-  comma: '， '
-  period: '。 '
-  colon: '：'
+  comma: "， "
+  period: "。 "
+  colon: "："
 
 reward:
   donate: 打赏

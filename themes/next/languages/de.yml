@@ -30,7 +30,7 @@ post:
   visitors: Visitors
   wordcount: Words count in article
   min2read: Reading time
-  totalcount: Site words total count
+  totalcount: 字数总计
   copyright:
     author: Post author
     link: Post link
@@ -79,9 +79,9 @@ cheers:
 keep_on: Bleib dran.
 
 symbol:
-  comma: '. '
-  period: ', '
-  colon: ':'
+  comma: ". "
+  period: ", "
+  colon: ":"
 
 reward:
   donate: Donate
