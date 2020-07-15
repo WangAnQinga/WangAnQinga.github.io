@@ -4,7 +4,9 @@ categories:
   - 前端
 tags:
   - git
+date: 2020-07-07 10:05:39
 ---
+
 
 **本文思路：**
 
@@ -14,14 +16,14 @@ tags:
 4. 提交之前添加代码风格检验
 5. 附加：commit 工具
 
-### commit 简介
+## commit 简介
 
 Git 每次提交代码，都要写 Commit message（提交说明），否则就不允许提交。
 目前，社区有多种 Commit message 的写法规范。Angular 规范是目前使用最广的写法，比较合理和系统化，并且有配套的工具。
 
 ---
 
-### commit 格式
+## commit 格式
 
 目前规范使用较多的是 Angular 团队的规范, 继而衍生了 Conventional Commits specification. 很多工具也是基于此规范, 它的 message 格式如下:
 
@@ -65,34 +67,6 @@ git commit -m "feat: 增加了 XXX 功能"
 
 ---
 
-## commitlint
-
-代码检验工具,需配合 husky（暂时可以不安装，下面单独模块解释） 使用
-
-```bash
-# Install commitlint cli and conventional config
-npm install --save-dev @commitlint/{config-conventional,cli}
-# For Windows:
-npm install --save-dev @commitlint/config-conventional @commitlint/cli
-
-# Configure commitlint to use conventional config
-echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
-```
-
-```
-{
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  }
-}
-```
-
-[https://github.com/conventional-changelog/commitlint](https://github.com/conventional-changelog/commitlint)
-
----
-
 ## husky
 
 husky 会在 git 的钩子 pre-commit 进行相关操作
@@ -108,11 +82,39 @@ npm install husky -D -S
 ```
 "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
       "pre-commit": "eslint --ext .js,.vue src"
     }
   }
 ```
+
+---
+
+## commitlint
+
+代码检验工具,需配合上面的 husky 使用
+
+```bash
+# Install commitlint cli and conventional config
+npm install --save-dev @commitlint/{config-conventional,cli}
+# For Windows:
+npm install --save-dev @commitlint/config-conventional @commitlint/cli
+
+# Configure commitlint to use conventional config
+echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
+```
+
+```
+{
+  "husky": {
+    "hooks": {
+       "pre-commit": "eslint --ext .js,.vue src"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
+```
+
+[https://github.com/conventional-changelog/commitlint](https://github.com/conventional-changelog/commitlint)
 
 这个时候加入了 eslint 代码风格检验, **但这样会有一个问题，就是这次提交，我可能只修改了一个文件，比如我就修改了 package.json 的内容，但它依然会校验所有 src 下面的.js 文件，非常的不友好。**
 
@@ -160,7 +162,7 @@ commitizen 作用: Simply use git cz instead of git commit when committing.
 npm install -g commitizen cz-conventional-changelog
 ```
 
-这个工具可用可不用，看个人喜好
+**这个工具可用可不用，看个人喜好**
 
 如上配置，每次它只会在你本地 commit 之前，校验你提交的内容是否符合你本地配置的 eslint 规则(这个见文档 ESLint )，如果符合规则，则会提交成功。如果不符合它会自动执行 eslint --fix 尝试帮你自动修复，如果修复成功则会帮你把修复好的代码提交，如果失败，则会提示你错误，让你修好这个错误之后才能允许你提交代码
 

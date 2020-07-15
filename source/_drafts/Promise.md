@@ -2,11 +2,12 @@
 title: Promise 对象
 categories:
 tags:
+  - javascript
 ---
 
 ## 描述
 
-Promise对象用于表示一个异步操作的最终完成 (或失败), 及其结果值。 Promise 对象是一个代理对象（代理一个值），被代理的值在 Promise 对象创建时可能是未知的。它允许你为异步操作的成功和失败分别绑定相应的处理方法（handlers）。 这让异步方法可以像同步方法那样返回值，但并不是立即返回最终执行结果，而是一个能代表未来出现的结果的 promise 对象
+Promise 对象用于表示一个异步操作的最终完成 (或失败), 及其结果值。 Promise 对象是一个代理对象（代理一个值），被代理的值在 Promise 对象创建时可能是未知的。它允许你为异步操作的成功和失败分别绑定相应的处理方法（handlers）。 这让异步方法可以像同步方法那样返回值，但并不是立即返回最终执行结果，而是一个能代表未来出现的结果的 promise 对象
 
 一个 Promise 有以下几种状态:
 
@@ -22,7 +23,7 @@ pending 状态的 Promise 对象可能会变为 fulfilled 状态并传递一个�
 
 这个方法返回一个新的 promise 对象，该 promise 对象在 iterable 参数对象里所有的 promise 对象都成功的时候才会触发成功，一旦有任何一个 iterable 里面的 promise 对象失败则立即触发该 promise 对象的失败。这个新的 promise 对象在触发成功状态以后，会把一个包含 iterable 里所有 promise 返回值的数组作为成功回调的返回值，顺序跟 iterable 的顺序保持一致；如果这个新的 promise 对象触发了失败状态，它会把 iterable 里第一个触发失败的 promise 对象的错误信息作为它的失败错误信息。Promise.all 方法常被用于处理多个 promise 对象的状态集合。
 
-每个iterable都处于fulfilled或者rejected状态才返回
+每个 iterable 都处于 fulfilled 或者 rejected 状态才返回
 
 如果 iterable===[]，则返回 undefined
 
@@ -125,3 +126,24 @@ console.log(promise1);
 // expected output: [object Promise]
 
 ```
+
+<!-- ## await 做了什么
+
+从字面意思上看 await 就是等待，await 等待的是一个表达式，这个表达式的返回值可以是一个 promise 对象也可以是其他值。
+很多人以为 await 会一直等待之后的表达式执行完之后才会继续执行后面的代码，实际上 await 是一个让出线程的标志。await 后面的表达式会先执行一遍，将 await 后面的代码加入到 microtask 中，然后就会跳出整个 async 函数来执行后面的代码。
+```
+async function async1() {
+	console.log('async1 start');
+	await async2();
+	console.log('async1 end');
+}
+```
+
+```
+async function async1() {
+	console.log('async1 start');
+	Promise.resolve(async2()).then(() => {
+                console.log('async1 end');
+        })
+}
+``` -->
