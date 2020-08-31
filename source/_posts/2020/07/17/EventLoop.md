@@ -1,8 +1,9 @@
 ---
 title: Event Loop
-categories:
 tags:
   - javascript
+date: 2020-07-17 17:03:27
+categories:
 ---
 
 ## js 执行机制
@@ -52,43 +53,56 @@ javascript 是一门单线程语言，意味着，同一个时间只能做一件
 
 macro-task(宏任务)、micro-task(微任务)
 
+宏任务：
+
+1. 同步任务：在 JS 引擎主线程上按顺序执行的任务
+2. 异步任务：进入异步队列，等待主线程任务结束,进入主线程进行执行，例如，ajax ,dom 事件，定时器
+
+微任务：是在 es6 和 node 环境中出现的一个任务类型
+
 <!-- 现在标准称呼可以认为是 tasks 和 jobs -->
 
-宏任务：script 全部代码（全局任务）, setTimeout, setInterval, setImmediate, I/O, UI rendering.
+宏任务：script 全部代码（同步任务）, setTimeout, setInterval, setImmediate, I/O, UI rendering.
 微任务：process.nextTick, Promise, Object.observer, MutationObserver.
 
 宏任务优先级：主代码块 > setImmediate > MessageChannel > setTimeout / setInterval
 微任务优先级：process.nextTick > Promise > MutationObserver
 
-<!-- 整个在 script 中的代码也是一个宏任务 -->
+宏任务同步任务 > 微任务 > 宏任务异步任务
 
 setImmediate 目前在 IE10 有用
 
+<!--
 除了广义的同步任务和异步任务，其实对异步任务还有更细致的划分
 macro-task(宏任务)和 microtask（微任务）属于对异步任务的分类，不同的 API 注册的异步任务会依次进入自身对应的队列中，然后等待 Event Loop 将它们依次压入执行栈中执行。
-微任务和宏任务皆为异步任务，但是他们将进入两个不同的异步队列里，而且微任务队列的优先级比宏任务的优先级要高。
+微任务和宏任务皆为异步任务，但是他们将进入两个不同的异步队列里，而且微任务队列的优先级比宏任务的优先级要高。 -->
 
-有歧义：
-script 全部代码属不属于宏任务。
+<!-- 我理解的 eventloop:
+在 JS 引擎主线程执行过程中：
 
-个人观点:
-script 属于宏任务。
+1. 首先执行宏任务的同步任务，在主线程上形成一个执行栈；
+2. 当执行栈中的函数调用到一些异步执行的 API （例如异步 Ajax，DOM 事件，setTimeout 等 API），则会开启对应的线程（ Http 异步请求线程，事件触发线程和定时器触发线程）进行监控和控制
+3. 当异步任务的事件满足触发条件时，对应的线程则会把该事件的处理函数推进任务队列( task queue )中，等待主线程读取执行
+4. 当 JS 引擎主线程上的任务执行完毕，则会读取任务队列中的事件，将任务队列中的事件任务推进主线程中，按任务队列顺序执行
+5. 当 JS 引擎主线程上的任务执行完毕后，则会再次读取任务队列中的事件任务，如此循环，这就是事件循环（ Event Loop ）的过程 -->
 
-我理解的 eventloop:
-
-## setTimeout
+<!-- ## setTimeout
 
 **setTimeout(fn,0)的含义是，指定某个任务在主线程最早可得的空闲时间执行，也就是说，尽可能早得执行。它在"任务队列"的尾部添加一个事件，因此要等到同步任务和"任务队列"现有的事件都处理完，才会得到执行。**
 
 HTML5 标准规定了 setTimeout()的第二个参数的最小值（最短间隔），不得低于 4 毫秒，如果低于这个值，就会自动增加。在此之前，老版本的浏览器都将最短间隔设为 10 毫秒。另外，对于那些 DOM 的变动（尤其是涉及页面重新渲染的部分），通常不会立即执行，而是每 16 毫秒执行一次。这时使用 requestAnimationFrame()的效果要好于 setTimeout()。
 
-需要注意的是，setTimeout()只是将事件插入了"任务队列"，必须等到当前代码（执行栈）执行完，主线程才会去执行它指定的回调函数。要是当前代码耗时很长，有可能要等很久，所以并没有办法保证，回调函数一定会在 setTimeout()指定的时间执行。
+需要注意的是，setTimeout()只是将事件插入了"任务队列"，必须等到当前代码（执行栈）执行完，主线程才会去执行它指定的回调函数。要是当前代码耗时很长，有可能要等很久，所以并没有办法保证，回调函数一定会在 setTimeout()指定的时间执行。 -->
 
 ## 相关阅读
 
 [EventLoop](https://javascript.info/event-loop)
 [microtask](https://javascript.info/microtask-queue)
+[tasks-microtasks-queues-and-schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
 [http://www.ruanyifeng.com/blog/2014/10/event-loop.html](http://www.ruanyifeng.com/blog/2014/10/event-loop.html)
+[https://stackoverflow.com/questions/25915634/difference-between-microtask-and-macrotask-within-an-event-loop-context/25933985#25933985](https://stackoverflow.com/questions/25915634/difference-between-microtask-and-macrotask-within-an-event-loop-context/25933985#25933985)
+
+<!-- [http://www.brandhuang.com/article/1576067877012](http://www.brandhuang.com/article/1576067877012) -->
 
 <!-- [事件轮训](https://segmentfault.com/a/1190000020400736)
 [event loop](https://www.jianshu.com/p/de7aba994523)

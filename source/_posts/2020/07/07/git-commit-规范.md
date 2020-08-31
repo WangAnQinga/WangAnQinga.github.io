@@ -178,11 +178,6 @@ npm install -g commitizen cz-conventional-changelog
 5. 如果有错误（没通过 ESlint 检查）则停止任务，同时打印错误信息，等待修复后再执行 commit;
 6. 成功 commit，可 push 到远程
 
-##### 相关依赖
-
-`commitizen` `husky` `lint-staged` `commitlint`
-
 ## 相关阅读
-
-[阮一峰 commit_message_change 文章](https://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
 [https://github.com/XXHolic/blog/issues/16](https://github.com/XXHolic/blog/issues/16)
+[阮一峰](https://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
