@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Wanganqing's Blog
+title: llscc 's Blog
 subtitle:
 description:
 keywords:
-author: wanganqing
+author: llscc
 language: zh-Hans
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://wanganqinga.github.io
+url: http://llscc.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -79,4 +79,4 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:WangAnQinga/WangAnQinga.github.io.git
+  repo: git@github.com:llscc/llscc.github.io.git
