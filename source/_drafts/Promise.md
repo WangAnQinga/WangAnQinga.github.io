@@ -5,6 +5,11 @@ tags:
   - javascript
 ---
 
+## 什么是 promise 解决哪些问题的 （基于回调
+
+1. 回调地狱 （代码不好维护，错误处理非常的麻烦，不能统一处理错误）
+2. 多个请求的并发问题，（之前写的并发读取文件，自己定义定时器）
+
 ## 描述
 
 Promise 对象用于表示一个异步操作的最终完成 (或失败), 及其结果值。 Promise 对象是一个代理对象（代理一个值），被代理的值在 Promise 对象创建时可能是未知的。它允许你为异步操作的成功和失败分别绑定相应的处理方法（handlers）。 这让异步方法可以像同步方法那样返回值，但并不是立即返回最终执行结果，而是一个能代表未来出现的结果的 promise 对象
@@ -147,3 +152,50 @@ async function async1() {
         })
 }
 ``` -->
+
+```
+
+async function async1(){
+   console.log('async1 start');
+    await async2();
+    console.log('async1 end')
+}
+async function async2(){
+    console.log('async2')
+}
+
+console.log('script start');
+async1();
+console.log('script end')
+
+// 输出顺序：script start->async1 start->async2->script end->async1 end
+async 函数返回一个 Promise 对象，当函数执行的时候，一旦遇到 await 就会先返回，等到触发的异步操作完成，再执行函数体内后面的语句。可以理解为，是让出了线程，跳出了 async 函数体。
+```
+
+隐式 try…catch
+
+Promise 的执行者（executor）和 promise 的处理程序（handler）周围有一个“隐式的 try..catch”。如果发生异常，它（译注：指异常）就会被捕获，并被视为 rejection 进行处理。
+
+```
+new Promise((resolve, reject) => {
+  throw new Error("Whoops!");
+}).catch(alert); // Error: Whoops!
+
+===
+
+new Promise((resolve, reject) => {
+  reject(new Error("Whoops!"));
+}).catch(alert); // Error: Whoops!
+```
+
+## 注意
+
+async 函数在 await 之前的代码都是同步执行的，可以理解为 await 之前的代码属于 new Promise 时传入的代码，await 之后的所有代码都是在 Promise.then 中的回调
+
+## es6 module 解决前端工程化开发 umd amd commonjs
+
+## 迭代器，生成器，promise,async/await
+
+## 相关阅读
+
+[promise 掘金](https://juejin.im/post/6844904077537574919#heading-3)

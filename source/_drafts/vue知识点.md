@@ -10,17 +10,17 @@ tags:
 
 需要在视图更新之后，基于新的视图进行操作
 
+### created、mounted
+
+在 created 和 mounted 阶段，如果需要操作渲染后的试图，也要使用 nextTick 方法。
+注意 mounted 不会承诺所有的子组件也都一起被挂载。如果你希望等到整个视图都渲染完毕，可以用 vm.\$nextTick 替换掉 mounted
+
 ### nextTick 原理
 
 1、异步说明
 Vue 实现响应式并不是数据发生变化之后 DOM 立即变化，而是按一定的策略进行 DOM 的更新
 2、事件循环说明
 简单来说，Vue 在修改数据后，视图不会立刻更新，而是等同一事件循环中的所有数据变化完成之后，再统一进行视图更新。
-
-### created、mounted
-
-在 created 和 mounted 阶段，如果需要操作渲染后的试图，也要使用 nextTick 方法。
-注意 mounted 不会承诺所有的子组件也都一起被挂载。如果你希望等到整个视图都渲染完毕，可以用 vm.\$nextTick 替换掉 mounted
 
 ### 以下使用 nexttick 的三种情况
 
@@ -78,3 +78,15 @@ computed 有缓存，若相关数据未发生变化，则不调用；
 watch 主要用于监控 vue 实例的变化，它监控的变量当然必须在 data 里面声明才可以，它是监控单个变量或对象
 消耗比较大
 watch 多用于数据交互频繁的内容。（例如定时 axios 从服务器获取数据）
+
+## Object.defineProperty 和 proxy
+
+Object.defineProperty 的作用是劫持一个对象的属性，劫持属性的 getter 和 setter 方法，在对象的属性发生变化时进行特定的操作。而 Proxy 劫持的是整个对象。
+
+Proxy 会返回一个代理对象，我们只需要操作新对象即可，而 Object.defineProperty 只能遍历对象属性直接修改,影响性能。
+
+Object.defineProperty 不支持数组，更准确的说是不支持数组的各种 API，因为如果仅仅考虑 arry[i] = value 这种情况，是可以劫持的，但是这种劫持意义不大。而 Proxy 可以支持数组的各种 API。
+
+## vue 为什么不能检测数组的变化
+
+[https://segmentfault.com/a/1190000015783546#comment-area](https://segmentfault.com/a/1190000015783546#comment-area)

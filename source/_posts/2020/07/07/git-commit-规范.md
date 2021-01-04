@@ -7,7 +7,6 @@ tags:
 date: 2020-07-07 10:05:39
 ---
 
-
 **本文思路：**
 
 1. commit 规范是什么
@@ -107,7 +106,7 @@ echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitl
 {
   "husky": {
     "hooks": {
-       "pre-commit": "eslint --ext .js,.vue src"
+       "pre-commit": "eslint --ext .js,.vue src",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
@@ -127,7 +126,7 @@ echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitl
 安装 lint-staged:
 
 ```bash
-npm install lint-staged -D -S
+npm install lint-staged -D
 ```
 
 修改 package.json 配置：
@@ -179,5 +178,6 @@ npm install -g commitizen cz-conventional-changelog
 6. 成功 commit，可 push 到远程
 
 ## 相关阅读
+
 [https://github.com/XXHolic/blog/issues/16](https://github.com/XXHolic/blog/issues/16)
 [阮一峰](https://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)

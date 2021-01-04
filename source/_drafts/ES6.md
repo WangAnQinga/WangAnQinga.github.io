@@ -32,3 +32,17 @@ let const 和 var 三者其实会存在变量提升
 
 - let 只是创建过程提升，初始化过程并没有提升，所以会产生暂时性死区,定义在使用之后报错。
 - var 的创建和初始化过程都提升了，所以在赋值前访问会得到 undefined function 的创建、初始化、赋值都被提升了
+
+## class contructor super extend
+
+类没有变量提升
+
+### super 关键字
+
+用于访问和调用对象父类上的函数，可以调用父类的构造函数，也可以调用父类的普通函数。
+
+在子类构造函数中使用 this，需要提前使用 super()
+
+## 相关视频
+
+[b 站黑马](https://www.bilibili.com/video/BV1Kt411w7MP?p=40)

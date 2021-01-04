@@ -6,9 +6,9 @@ tags:
 
 ## 字符串字面两
 
-```
-const a = `1234`
-const b = `${a}56789`
+```javascript
+const a = `1234`;
+const b = `${a}56789`;
 ```
 
 ## 转义字符
@@ -78,11 +78,11 @@ console.log(cat.charAt(1),cat[1]) // a,a
 
 这个方法已经被加入到 ECMAScript 6 标准中，但未必在所有的 JavaScript 实现中都可以使用。然而，你可以轻松地 polyfill 这个方法：
 
-```
+```javascript
 if (!String.prototype.includes) {
-  String.prototype.includes = function(search, start) {
-    'use strict';
-    if (typeof start !== 'number') {
+  String.prototype.includes = function (search, start) {
+    "use strict";
+    if (typeof start !== "number") {
       start = 0;
     }
 
@@ -100,14 +100,14 @@ if (!String.prototype.includes) {
 
 这个方法已经加入到 ECMAScript 6 标准当中，但是可能还没有在所有的 JavaScript 实现中可用。然而，你可以通过如下的代码片段扩展 String.prototype.endsWith() 实现兼容：
 
-```
+```javascript
 if (!String.prototype.endsWith) {
-	String.prototype.endsWith = function(search, this_len) {
-		if (this_len === undefined || this_len > this.length) {
-			this_len = this.length;
-		}
-		return this.substring(this_len - search.length, this_len) === search;
-	};
+  String.prototype.endsWith = function (search, this_len) {
+    if (this_len === undefined || this_len > this.length) {
+      this_len = this.length;
+    }
+    return this.substring(this_len - search.length, this_len) === search;
+  };
 }
 ```
 

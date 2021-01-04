@@ -30,6 +30,10 @@ new Promise(function(resolve){
 console.log('script end')
 ```
 
+## async await
+
+async 函数在 await 之前的代码都是同步执行的，可以理解为 await 之前的代码属于 new Promise 时传入的代码，await 之后的所有代码都是在 Promise.then 中的回调
+
 ```
 解析：
 console.log('script start');

@@ -15,3 +15,7 @@ this 是在函数运行时产生，全局的 this 指向 window。
 #### 全局调用
 
 #### 作为对象的属性
+
+## call apply
+
+大于三个参数，call 的性能略优于比 apply

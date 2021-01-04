@@ -14,7 +14,7 @@ javascript 是一门单线程语言，意味着，同一个时间只能做一件
 
 单线程就意味着，所有任务需要排队，前一个任务结束，才会执行后一个任务。如果前一个任务耗时很长，后一个任务就不得不一直等着。
 
-所有任务可以分成两种：一种是同步任务（synchronous），另一种是异步任务（asynchronous）。
+所有任务可以分成两种：一种是同步任务（synchronous），另一种是异步任务（asynchronous）。 暂时这么定义。
 
 同步任务在主线程上执行，形成执行栈。异步任务则放在"任务队列"中，等待主线程中同步任务完成再执行.
 
@@ -99,6 +99,7 @@ HTML5 标准规定了 setTimeout()的第二个参数的最小值（最短间隔�
 [EventLoop](https://javascript.info/event-loop)
 [microtask](https://javascript.info/microtask-queue)
 [tasks-microtasks-queues-and-schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
+[youtube](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
 [http://www.ruanyifeng.com/blog/2014/10/event-loop.html](http://www.ruanyifeng.com/blog/2014/10/event-loop.html)
 [https://stackoverflow.com/questions/25915634/difference-between-microtask-and-macrotask-within-an-event-loop-context/25933985#25933985](https://stackoverflow.com/questions/25915634/difference-between-microtask-and-macrotask-within-an-event-loop-context/25933985#25933985)
 
